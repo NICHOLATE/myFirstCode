@@ -1,0 +1,104 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
+void main(List<String> args) {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        body: Center(
+          child:
+              Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
+            Padding(
+              padding: const EdgeInsets.only(top: 50, left: 10, right: 10),
+              child: Text(
+                textAlign: TextAlign.center,
+                "Stateless and Statefull number game",
+                style: TextStyle(fontSize: 25),
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Text(
+              textAlign: TextAlign.center,
+              "This is an app we can use to play with numbers",
+              style: TextStyle(fontSize: 20),
+            ),
+            SizedBox(
+              height: 50,
+            ),
+            YesNo(),
+          ]),
+        ),
+      ),
+    );
+  }
+}
+
+class YesNo extends StatefulWidget {
+  @override
+  State<YesNo> createState() => _YesNoState();
+}
+
+class _YesNoState extends State<YesNo> {
+  var counter = 0;
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Column(
+        children: [
+          Text(
+            "$counter",
+            style: TextStyle(fontSize: 20),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          MaterialButton(
+            onPressed: () {
+              setState(() {
+                counter++;
+              });
+            },
+            height: 50,
+            minWidth: 200,
+            color: Colors.blue,
+            child: Text(
+              "Increment by 1",
+              style: TextStyle(fontSize: 20, color: Colors.white),
+            ),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          MaterialButton(
+            onPressed: () {
+              setState(() {
+                counter = 0;
+              });
+            },
+            height: 50,
+            minWidth: 200,
+            color: Colors.blue,
+            child: Text(
+              "Start Over",
+              style: TextStyle(fontSize: 20, color: Colors.white),
+            ),
+          ),
+          SizedBox(
+            height: 100,
+          ),
+          Text(
+            "Your homework is to finish video number 11 on ethuto",
+            style: TextStyle(fontSize: 15),
+          ),
+        ],
+      ),
+    );
+  }
+}
